@@ -1,0 +1,17 @@
+/* You can add global styles to this file, and also import other style files */
+html, body{
+  height: 100%;
+  width: 100%;
+  background-color: #e81d25;
+  scroll-behavior: smooth;
+}
+*{
+  outline: none;
+}
+a.hover:hover{
+  padding-bottom: 6px;
+  border-bottom: 1px solid #fff;
+  text-decoration: none;
+}
+@import url('https://fonts.googleapis.com/css2?family=Sniglet&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Didact+Gothic&display=swap');

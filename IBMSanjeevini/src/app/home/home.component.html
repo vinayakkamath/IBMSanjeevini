@@ -1,0 +1,223 @@
+<div class="home-outer">
+  <div class="container">
+    <div class="row">
+      <div class="home-inner">
+        <div class="feedback">
+          <a href="mailto:kamath.vinayak@in.ibm.com">Share your Feedback</a>
+        </div>
+        <p class="title-text">IBM Sanjeevini is an internal digital platform for all the IBM employees who are in dire need of Blood for themself or their loved once, can raise a request in this portal following which a mail will be sent to the concerned location POC, once verified the POC will then forward it to all the IBM employees of that particular location from where the request has been raise asking for a helping hand from their fellow IBMers urging them to fulfill their supreme duty as a human being; to save a life.</p>
+        <p class="title-text">Donating blood is a noble cause and a selfless act which helps save lives it’s like offering someone a chance at life. Giving your blood to someone in need is a gift.</p>
+        <div class="col-lg-8 home-left">
+          <div class="success-message" *ngIf="savedChanges else showForm">
+            <p>A mail has been sent successfully to your location POC with your details...</p>
+          </div>
+          <ng-template #showForm>
+          <a class="btn btn-primary create-request-btn" data-toggle="collapse" href="#create-request" role="button" aria-expanded="false" aria-controls="collapseExample">
+            <span><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-plus-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4a.5.5 0 0 0-1 0v3.5H4a.5.5 0 0 0 0 1h3.5V12a.5.5 0 0 0 1 0V8.5H12a.5.5 0 0 0 0-1H8.5V4z"/>
+            </svg></span>Create Request
+          </a>
+          <div class="collapse create-request" id="create-request">
+            <div class="row">
+              <div class="col-lg-6 col-md-6 home-left-inner">
+                <form name="brForm" #brForm="ngForm" id="brForm" (ngSubmit)="getValue(brForm.value)">
+                  <div class="form-group">
+                    <label for="location-type">Select IBM Location</label>
+                    <select class="form-control" id="blood-type" name="ibmlocation" #ibmlocation="ngModel" ngModel autofocus required>
+                      <option>Bangalore</option>
+                      <option>Delhi</option>
+                      <option>Mumbai</option>
+                      <option>Chennai</option>
+                      <option>Pune</option>
+                      <option>Gurgaon</option>
+                      <option>Noida</option>
+                      <option>Hyderabad</option>
+                      <option>Ahmedabad</option>
+                      <option>Kolkata</option>
+                      <option>Bhubaneshwar</option>
+                      <option>Coimbatore</option>
+                      <option>Vishakapatnam</option>
+                    </select>
+                    <div class="alert alert-danger alert-div" role="alert" *ngIf="ibmlocation.invalid && (ibmlocation.dirty || ibmlocation.touched)">
+                      Please select your location
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" class="form-control" id="name" name="username" #username="ngModel" ngModel autofocus required>
+                    <div class="alert alert-danger alert-div" role="alert" *ngIf="username.invalid && (username.dirty || username.touched)">
+                      Please enter your name
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="ibmemail">IBM Email Id</label>
+                    <input type="email" class="form-control" id="ibmemail" name="ibmemail" #ibmemail="ngModel" ngModel autofocus email required>
+                    <div class="alert alert-danger alert-div" role="alert" *ngIf="ibmemail.invalid && (ibmemail.dirty || ibmemail.touched)">
+                      Please enter your IBM email id
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="empId">Employee Id</label>
+                    <input type="text" class="form-control" id="empId" name="empId" #empId="ngModel" ngModel autofocus required>
+                    <div class="alert alert-danger alert-div" role="alert" *ngIf="empId.invalid && (empId.dirty || empId.touched)">
+                      Please enter your IBM employee id
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="phone">Phone</label>
+                    <input type="tel" oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');"  minlength="10" maxlength="10" class="form-control" id="phone" name="phone" #phone="ngModel" ngModel autofocus required>
+                    <div class="alert alert-danger alert-div" role="alert" *ngIf="phone.invalid && (phone.dirty || phone.touched)">
+                      Please enter your phone number
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="blood-type">Select Blood Type</label>
+                    <select class="form-control" id="blood-type" name="type" #type="ngModel" ngModel autofocus required>
+                      <option>O+</option>
+                      <option>O-</option>
+                      <option>A+</option>
+                      <option>A-</option>
+                      <option>B+</option>
+                      <option>B-</option>
+                      <option>AB+</option>
+                      <option>AB-</option>
+                    </select>
+                    <div class="alert alert-danger alert-div" role="alert" *ngIf="type.invalid && (type.dirty || type.touched)">
+                      Please select the blood type
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="bags">Number Of Bags Required</label>
+                    <input type="number" min="1" class="form-control" id="bags" name="bags" #bags="ngModel" ngModel autofocus required>
+                    <div class="alert alert-danger alert-div" role="alert" *ngIf="bags.invalid && (bags.dirty || bags.touched)">
+                      Please select the number of bags required
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="operation-type">Select Operation Type</label>
+                    <select class="form-control" id="operation-type" name="opType" #opType="ngModel" ngModel autofocus required>
+                      <option>Major</option>
+                      <option>Minor</option>
+                    </select>
+                    <div class="alert alert-danger alert-div" role="alert" *ngIf="opType.invalid && (opType.dirty || opType.touched)">
+                      Please select the operation type
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="date">Required Date</label>
+                    <input type="date" class="form-control" id="date" name="date" #date="ngModel" ngModel autofocus required>
+                    <div class="alert alert-danger alert-div" role="alert" *ngIf="date.invalid && (date.dirty || date.touched)">
+                      Please select the date when you need the blood
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="address">Hospital Address</label>
+                    <textarea class="form-control" id="address" rows="3" name="hospitalAddr" #hospitalAddr="ngModel" ngModel autofocus required></textarea>
+                    <div class="alert alert-danger alert-div" role="alert" *ngIf="hospitalAddr.invalid && (hospitalAddr.dirty || hospitalAddr.touched)">
+                      Please enter the hospital address
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="reason">Reason For Raising Blood Request</label>
+                    <textarea class="form-control" id="reason" rows="3" name="reason" #reason="ngModel" ngModel autofocus required></textarea>
+                    <div class="alert alert-danger alert-div" role="alert" *ngIf="reason.invalid && (reason.dirty || reason.touched)">
+                      Please enter the reason for blood request
+                    </div>
+                  </div>
+
+                  <div *ngIf="!brForm.valid else showSubmitBtn">
+                  <button type="button" class="btn btn-primary submit-btn submit-btn-hidden">
+                        Submit Request
+                      </button>
+                  </div>
+                  <ng-template #showSubmitBtn>
+                  <button type="button" class="btn btn-primary submit-btn" data-toggle="modal" data-target="#formVerificationPopup">
+                        Submit Request
+                      </button>
+                  </ng-template>
+                  <!-- Modal -->
+                  <div class="modal fade formVerificationPopup" id="formVerificationPopup" tabindex="-1" role="dialog" aria-labelledby="formVerificationPopupLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLabel">Verify your Blood Request Details</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+
+                        <div class="home-center-inner">
+                            <div class="form-group">
+                              <label><strong> Location :</strong></label> {{ ibmlocation.value }}
+                            </div>
+                            <div class="form-group">
+                              <label><strong>Name :</strong></label> {{ username.value }}
+                            </div>
+                            <div class="form-group">
+                              <label><strong>IBM Email Id :</strong></label> {{ ibmemail.value }}
+                            </div>
+                            <div class="form-group">
+                              <label><strong>Employee Id :</strong></label> {{ empId.value }}
+                            </div>
+                            <div class="form-group">
+                              <label><strong>Phone :</strong></label> {{ phone.value }}
+                            </div>
+                            <div class="form-group">
+                              <label><strong>Blood Type :</strong></label> {{ type.value }}
+                            </div>
+                            <div class="form-group">
+                              <label><strong>Number Of Bags Required :</strong></label> {{ bags.value }}
+                            </div>
+                            <div class="form-group">
+                              <label><strong>Operation Type :</strong></label> {{ opType.value }}
+                            </div>
+                            <div class="form-group">
+                              <label><strong>Required Date :</strong></label> {{ date.value | date:'fullDate' }}
+                            </div>
+                            <div class="form-group">
+                              <label><strong>Hospital Address :</strong></label><br /> {{ hospitalAddr.value }}
+                            </div>
+                            <div class="form-group">
+                              <label><strong>Reason For Raising Blood Request :</strong></label><br /> {{ reason.value }}
+                            </div>
+                          </div>
+
+
+                        <button type="submit" class="btn btn-primary submit-btn">
+                      <span class="spinner-border spinner-border-sm" role="status" *ngIf="dataLoading" aria-hidden="true"></span>
+                      Send Request</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+
+
+                </form>
+              </div>
+
+
+            </div>
+        </div>
+
+        </ng-template>
+        </div>
+
+        <div class="col-lg-4 col-md-12 home-right">
+          <img src="../../assets/img/bd-quote.png" class="img-fluid" alt="Blood Donation Quote" />
+          <p>Why should we be concerned about donating blood?</p>
+          <ul>
+            <li>Our nation requires 4 Crore Units of Blood while only 40 lakh units are available</li>
+            <li>Every two seconds someone needs Blood</li>
+            <li>There is no substitute for Human Blood. It cannot be manufactured</li>
+            <li>Blood donation is an extremely noble deed, yet there is a scarcity of regular donors across India</li>
+          </ul>
+          <p>Find out more details about who can donate Blood, why it is necessary and how will this platform help IBMers</p>
+          <a class="hover" routerLink="/information">Click here know more...</a>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

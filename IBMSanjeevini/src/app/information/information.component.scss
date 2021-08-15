@@ -1,0 +1,51 @@
+.info-outer, .info-inner{
+  float: left;
+  width: 100%;
+  .backToBtn{
+    color: #fff;
+    font-family: 'Didact Gothic', sans-serif;
+    padding-bottom: 5px;
+    margin-left: 15px;
+  }
+  .blood-info{
+    float: left;
+    width: 100%;
+    margin-top: 30px;
+    h1{
+      color: #fff;
+      font-family: "Sniglet", cursive;
+      font-size: 80px;
+      margin-top: 30%;
+      @media screen and (max-width: 991px){
+        margin-top: 30px;
+      }
+      @media screen and (max-width: 767px){
+        font-size: 40px;
+        text-align: center;
+      }
+    }
+    h4{
+      color: #fff;
+      font-family: 'Didact Gothic', sans-serif;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #fff;
+    }
+    p{
+      color: #fff;
+      font-family: 'Didact Gothic', sans-serif;
+    }
+    table{
+      color: #fff;
+      font-family: 'Didact Gothic', sans-serif;
+      text-align: center;
+    }
+    ul{
+      color: #fff;
+      font-family: 'Didact Gothic', sans-serif;
+    }
+    .blood-types, .blood-title, .blood-compatibility, .criteria{
+      float: left;
+      margin-bottom: 30px;
+    }
+  }
+}
