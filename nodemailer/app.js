@@ -139,7 +139,7 @@ async function sendMail(user, callback) {
       <td height="50"></td>
     </tr>
   </tbody>
-</table>
+</table> 
     `
   };
 
